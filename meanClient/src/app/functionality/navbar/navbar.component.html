@@ -1,0 +1,103 @@
+ <nav class="navbar navbar-expand-sm   bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Home</a>
+
+
+
+
+
+  <!-- Links -->
+  <ul class="nav navbar-nav ml-auto">
+      <a class="nav-link" routerLink="list"><strong>List</strong></a>
+    <li class="nav-item">
+
+
+      <button type="button" class="btn btn-primary" (click)="setModel()" data-toggle="modal" data-target="#myModal">
+          Add New
+        </button>
+    </li>
+
+
+    <!-- Dropdown -->
+
+  </ul>
+
+   <!-- Button to Open the Modal -->
+   <div *ngIf="error == 'true'" class="alert alert-danger">
+      <strong> You have not filled the form correctly</strong>
+    </div>
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal" style="width:1050px;">
+    <div class="modal-dialog modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+
+          <h4 >Add</h4>
+           <div id="image">
+              <input type="file" id="inputFileToLoad" accept="image"  [(ngModel)]="file"  >
+
+
+              <input type="text" hidden #profile id="response" name="profile" accept="image" >
+              <div id="container"  style="position: absolute;left:10px;">
+                  <img id="preview" height="150" width="150" src="" style="display:none"   >
+              </div>
+               <button type="button"  id="BaseToImage"  class="btn btn-primary">
+                Upload
+              </button>
+           </div>
+
+           <div class="form1">
+              <ul>
+
+
+                  <li>
+                    <label for="username" >Username</label>
+                    <input type="text"   #username placeholder="Enter Name" name="username" [(ngModel)]="name" id="username"  required ngModel>
+                  </li>
+                  <li>
+                    <label for="address">Address :</label>
+                    <input type="address"  #address  name="address" placeholder="Brief Address" [(ngModel)]="adress"   required ngModel id="address">
+                  </li>
+
+                </ul>
+              </div>
+
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+            <div class="form2">
+                <ul id="form2">
+
+                      <li>
+                          <label for="contact">Contact:</label>
+                          <input type="number" #number  name="contact" placeholder="Should be a number" [(ngModel)]="contact"   required ngModel id="contact">
+                          <label for="email">Email</label>
+                          <input type="email" #email  name="email"  placeholder="Should be valid"  [(ngModel)]="mail" required ngModel id="email">
+
+                      </li>
+
+
+
+
+                </ul>
+                </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="submit" id="addButton" class="btn btn-primary" data-dismiss="modal" (click)="addData(username.value,address.value,number.value,email.value,profile.value)" >Add</button>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" id="addButton" class="btn btn-danger" (click)="closeModel()" data-dismiss="modal">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</nav>

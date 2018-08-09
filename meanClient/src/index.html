@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MeanClient</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+  <app-root></app-root>
+  <script>
+    $(document).ready(function(){
+      $('#inputFileToLoad').change(function(){
+			var fileSelected = document.getElementById('inputFileToLoad').files;
+			console.log(fileSelected);
+			if(fileSelected.length > 0)
+			{
+				var fileToLoad = fileSelected[0];
+				var fileReader = new FileReader();
+				fileReader.onload = function(fileLoadedEvent){
+					var base64Value = fileLoadedEvent.target.result;
+					console.log(base64Value);
+          $('#response').val(base64Value);
+
+				}
+        fileReader.readAsDataURL(fileToLoad);
+
+
+				}
+    });
+
+    $('#BaseToImage').click(function(){
+			document.getElementById('preview').setAttribute('src', $('#response').val());
+      $('#preview').show();
+
+		})
+
+
+
+
+});
+
+
+  </script>
+
+</body>
+</html>

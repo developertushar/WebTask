@@ -1,0 +1,94 @@
+.modal-dialog {
+
+  width: 800px;
+  position: absolute;
+  left: 500px;
+  height:600px !important;
+
+}
+
+.modal-content {
+
+/* 80% of window height */
+
+height: 80%;
+width: 100%;
+
+background-color:#BBD6EC;
+
+}
+
+.modal-header {
+
+background-color: #337AB7;
+height: 55%;
+padding:16px 16px;
+
+color:#FFF;
+
+border-bottom:2px dashed #337AB7;
+
+}
+
+
+ul li{
+  list-style-type: none;
+}
+
+#image
+{
+  border:1px solid black;
+  height:100px;
+  width: 100px;
+  position: relative;
+  top:0px;
+  left: -50px;
+}
+
+
+#uploadButton{
+  position: relative;
+  top:155px;
+  left:20px;
+
+
+}
+
+#form2{
+  position: absolute;
+  left: -20px;
+  top:50px;
+}
+
+#addButton{
+  width: 100%;
+}
+
+
+#image
+{
+  height: 200px;
+  position: relative;
+  top:30px;
+  left: -30;
+  width: 200px;
+  z-index: 0;
+}
+
+
+h4{
+  z-index: 1000;
+  position: relative;
+  left: 12px;
+}
+
+
+#pic{
+  border-radius: 20px;
+}
+
+
+input.ng-invalid.ng-touched , select.ng-invalid.ng-touched{
+  border: 1px solid rgb(165, 62, 62);
+}
+

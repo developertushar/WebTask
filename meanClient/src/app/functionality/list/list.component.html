@@ -1,0 +1,115 @@
+<div class="container">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Username</th>
+        <th>Address</th>
+        <th>Contact</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of userData">
+        <td ><img src="{{data.profile}}" id="pic" alt="" height="25px" width="25px"></td>
+        <td hidden="true">{{data.id}}</td>
+
+        <td value="data.username">{{data.username}}</td>
+        <td>{{data.address}}</td>
+        <td>{{data.number}}</td>
+        <td>{{data.email}}</td>
+        <button type="button" class="btn btn-danger"   (click)="deleteData(data)" data-target="#myModal">
+            delete
+          </button>
+
+            <button type="button" class="btn btn-primary"  (click)="updateData(data)" data-toggle="modal" data-target="#myModal1">
+              update
+            </button>
+
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+
+
+  </div>
+
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal1">
+        <div class="modal-dialog modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+
+                <h4 >Image</h4>
+                 <div id="image">
+                    <img id="preview"  src="{{profile}}"  height="200px" width="200px">
+                 </div>
+
+                 <div class="form1">
+                    <ul>
+
+
+                        <li>
+                          <label for="username" >Username</label>
+                          <input type="text"   #username name="username" [(ngModel)]="name" id="username"  required ngModel>
+                        </li>
+                        <li>
+                          <label for="address">Address :</label>
+                          <input type="address"  #address  name="address" [(ngModel)]="adress"   required ngModel id="address">
+                        </li>
+
+                      </ul>
+                    </div>
+
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                  <div class="form2">
+                      <ul id="form2">
+
+                            <li>
+                                <label for="contact">Contact:</label>
+                                <input type="number" #number  name="contact" [(ngModel)]="contact"   required ngModel id="contact">
+                                <label for="email">Email</label>
+                                <input type="email" #email  name="email"   [(ngModel)]="mail" required ngModel id="email">
+
+                            </li>
+
+
+
+
+                      </ul>
+                      </div>
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="submit" id="addButton" class="btn btn-primary" data-dismiss="modal" (click)="addData(username.value,address.value,number.value,email.value,contact.value)" >Update</button>
+              </div>
+
+              <div class="modal-footer">
+                  <button type="button" id="addButton" class="btn btn-danger" (click)="closeModel()" data-dismiss="modal">Cancel</button>
+              </div>
+
+            </div>
+          </div>
+    </div>
+
+
+
+
+
+   <!-- The Modal -->
+
+
+
+
+
